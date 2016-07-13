@@ -14,7 +14,9 @@ var {
   TouchableHighlight,
   View,
 } = require('react-native');
+
 var TimerMixin = require('react-timer-mixin');
+var Orientation = require('react-native-orientation');
 
 var LightboxOverlay = require('./LightboxOverlay');
 
@@ -83,6 +85,7 @@ var Lightbox = React.createClass({
   },
 
   open: function() {
+    Orientation.lockToPortrait();
     this._root.measure((ox, oy, width, height, px, py) => {
       this.props.onOpen();
 
